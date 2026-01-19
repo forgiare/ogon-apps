@@ -46,79 +46,78 @@
 
 class QOgonMessageBoxBase : public QWidget {
 	Q_OBJECT
-
 public:
 
-	QOgonMessageBoxBase(uint id, uint type, uint style, uint timeout,
-			QString para1, QString para2, QString para3,
-			QString para4, QString para5);
+    QOgonMessageBoxBase(uint id, uint type, uint style, uint timeout,
+		    QString para1, QString para2, QString para3,
+		    QString para4, QString para5);
 
-	virtual ~QOgonMessageBoxBase();
+    virtual ~QOgonMessageBoxBase();
 
-	bool prepare();
-	void start();
-	void setupUi(QWidget *messageBox);
-	void retranslateUi(QWidget *messageBox);
+    bool prepare();
+    void start();
+    void setupUi(QWidget *messageBox);
+    void retranslateUi(QWidget *messageBox);
 
-	QTranslator *getTranslator();
-	const QStringList &getLocales();
+    QTranslator *getTranslator();
+    const QStringList &getLocales();
 
-	uint getId();
-	uint getResponse();
+    uint getId();
+    uint getResponse();
 
 
 private slots:
 
-	void updateTime();
-	void buttonclicked();
-	void keyPressEvent(QKeyEvent * event);
+    void updateTime();
+    void buttonclicked();
+    void keyPressEvent(QKeyEvent * event);
 
 private:
-	uint mId;
-	uint mType;
-	uint mStyle;
-	uint mTimeout;
-	uint mCurrentTimeout;
-	int mResponse;
+    uint mId;
+    uint mType;
+    uint mStyle;
+    uint mTimeout;
+    uint mCurrentTimeout;
+    int mResponse;
 
-	QString mPara1;
-	QString mPara2;
-	QString mPara3;
-	QString mPara4;
-	QString mPara5;
+    QString mPara1;
+    QString mPara2;
+    QString mPara3;
+    QString mPara4;
+    QString mPara5;
 
-	QTimer *mTimer;
+    QTimer *mTimer;
 
-	virtual void sendResponse() = 0;
-	virtual void showMessagebox() = 0;
+    virtual void sendResponse() = 0;
+    virtual void showMessagebox() = 0;
 
-	/* gui elements */
+    /* gui elements */
 
-	QVBoxLayout *verticalLayout_2;
-	QVBoxLayout *content;
-	QLabel *titleLabel;
-	QSpacerItem *topSpacer;
-	QLabel *contentLabel;
-	QSpacerItem *buttomSpacer;
-	QHBoxLayout *timeoutBox;
-	QSpacerItem *timeoutSpacer;
-	QLabel *timeoutLabel;
-	QLabel *timeout;
-	QHBoxLayout *buttonBox;
-	QSpacerItem *horizontalSpacer;
-	QPushButton *buttonOK;
-	QPushButton *buttonYes;
-	QPushButton *buttonNo;
-	QPushButton *buttonAbort;
-	QPushButton *buttonRetry;
-	QPushButton *buttonIgnore;
-	QPushButton *buttonCancel;
-	QPushButton *buttonTry;
-	QPushButton *buttonContine;
+    QVBoxLayout *verticalLayout_2;
+    QVBoxLayout *content;
+    QLabel *titleLabel;
+    QSpacerItem *topSpacer;
+    QLabel *contentLabel;
+    QSpacerItem *buttomSpacer;
+    QHBoxLayout *timeoutBox;
+    QSpacerItem *timeoutSpacer;
+    QLabel *timeoutLabel;
+    QLabel *timeout;
+    QHBoxLayout *buttonBox;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *buttonOK;
+    QPushButton *buttonYes;
+    QPushButton *buttonNo;
+    QPushButton *buttonAbort;
+    QPushButton *buttonRetry;
+    QPushButton *buttonIgnore;
+    QPushButton *buttonCancel;
+    QPushButton *buttonTry;
+    QPushButton *buttonContine;
 
-	QStringList mLocalizationFiles;
+    QStringList mLocalizationFiles;
 
-	QTranslator mMessageTranslator;
+    QTranslator mMessageTranslator;
 };
 
 #endif //__QOGON_MESSAGE_BASE_H__
